@@ -1,4 +1,6 @@
-﻿using Entities.Concrete;
+﻿using Business.Dtos.Requests;
+using Business.Dtos.Responses;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +11,9 @@ namespace Business.Abstract
 {
     public interface ICategoryService
     {
-        void Add(Category category);
+        CreatedCategoryResponse Add(CreateCategoryRequest createCategoryRequest);
         void Update(Category category);
         void Delete(Category category);
-        List<Category> GetList();
+        List<GetAllCategoryResponse> GetList();
     }
 }

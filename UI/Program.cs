@@ -17,31 +17,31 @@ namespace ConsoleUI
             //CategoryDelete();
            
         }
-        private static void CategoryAdd()
-        {
-            Category category3 = new Category {Id=1, Name="Test" };
+        //private static void CategoryAdd()
+        //{
+        //    Category category3 = new Category {Id=1, Name="Test" };
            
-            CategoryManager categoryManager = new CategoryManager(new CategoryDal());
-            categoryManager.Add(category3);
-            List<Category> list = categoryManager.GetList();
-            foreach (var d in list)
-            {
-                Console.WriteLine("KursId: " + d.Id + " " + "KursName:" + d.Name);
-            }
-        }
-        private static void CategoryDelete() {
-            Category category3 = new Category { Id = 6, Name = "deneme" };
-            Category category4 = new Category { Id = 5, Name = "deneme123" };
-            CategoryManager categoryManager = new CategoryManager(new CategoryDal());
-            categoryManager.Add(category3);
-            categoryManager.Add(category4);
-            categoryManager.Delete(category3 );
-            List<Category> list = categoryManager.GetList();
-            foreach (var d in list)
-            {
-                Console.WriteLine("KursId: " + d.Id + " " + "KursName:" + d.Name);
-            }
-        }
+        //    CategoryManager categoryManager = new CategoryManager(new CategoryDal());
+        //    categoryManager.Add(category3);
+        //    List<Category> list = categoryManager.GetList();
+        //    foreach (var d in list)
+        //    {
+        //        Console.WriteLine("KursId: " + d.Id + " " + "KursName:" + d.Name);
+        //    }
+        //}
+        //private static void CategoryDelete() {
+        //    Category category3 = new Category { Id = 6, Name = "deneme" };
+        //    Category category4 = new Category { Id = 5, Name = "deneme123" };
+        //    CategoryManager categoryManager = new CategoryManager(new CategoryDal());
+        //    categoryManager.Add(category3);
+        //    categoryManager.Add(category4);
+        //    categoryManager.Delete(category3 );
+        //    List<Category> list = categoryManager.GetList();
+        //    foreach (var d in list)
+        //    {
+        //        Console.WriteLine("KursId: " + d.Id + " " + "KursName:" + d.Name);
+        //    }
+        //}
         private static void CourseAdd()
         {
             Course course1 = new Course { ID = 1, CategoryId = 1, Image = "neo.png", IntructorId = 1, Name = "C#", Rate = 10 };

@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Dtos.Requests;
+using Business.Dtos.Responses;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
 using Entities.Concrete;
@@ -17,10 +19,17 @@ namespace Business.Concrete
         {
             _categoryDal = categoryDal;
         }
-        public void Add(Category category)
+
+        public CreatedCategoryResponse Add(CreateCategoryRequest createCategoryRequest)
         {
+            Category category = new Category();
+            category.Name = createCategoryRequest.Name;
             _categoryDal.Add(category);
-            Console.WriteLine(category.Id + "ID NUMARALI Course Eklenmiştir");
+
+            CreatedCategoryResponse createdCategoryResponse = new CreatedCategoryResponse();
+            createdCategoryResponse.Name = createCategoryRequest.Name;
+            createdCategoryResponse.Id = 1;
+            return createdCategoryResponse;
         }
 
         public void Delete(Category category)
@@ -30,9 +39,18 @@ namespace Business.Concrete
             Console.WriteLine(category.Id + "'IDli Kayıt başarı ile silindi");
         }
 
-        public List<Category> GetList()
+        public List<GetAllCategoryResponse> GetList()
         {
-            return _categoryDal.GetList();
+            List<Category> categoryList = _categoryDal.GetList();
+            List<GetAllCategoryResponse> getAllCategoryResponses = new List<GetAllCategoryResponse>();
+            foreach (var category in categoryList)
+            {
+                GetAllCategoryResponse getAllCategoryResponse = new GetAllCategoryResponse();
+                getAllCategoryResponse.Name = category.Name;
+                getAllCategoryResponse.Id = category.Id;
+                getAllCategoryResponses.Add(getAllCategoryResponse);
+            }
+            return getAllCategoryResponses;
         }
 
         public void Update(Category category)

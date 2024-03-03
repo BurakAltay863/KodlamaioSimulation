@@ -31,7 +31,6 @@ namespace DataAccess.Concrete
            
             _category.Remove(category);
         }
-
         public List<Category> GetList()
         {
             return _category;
@@ -49,5 +48,6 @@ namespace DataAccess.Concrete
             }
             else { Console.WriteLine("Güncellenecek category bulunamadı"); }
         }
+
     }
 }
