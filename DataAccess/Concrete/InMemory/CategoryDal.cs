@@ -3,10 +3,11 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Concrete
+namespace DataAccess.Concrete.InMemory
 {
     public class CategoryDal : ICategoryDal
     {
@@ -28,9 +29,20 @@ namespace DataAccess.Concrete
 
         public void Delete(Category category)
         {
-           
+
             _category.Remove(category);
         }
+
+        public Category Get(Expression<Func<Category, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Category> GetList()
         {
             return _category;
@@ -43,8 +55,8 @@ namespace DataAccess.Concrete
             {
                 categoryToUpdate.Id = category.Id;
                 categoryToUpdate.Name = category.Name;
-                Console.WriteLine(categoryToUpdate.Id +"nOLU category başarı ile eklendi");
-               
+                Console.WriteLine(categoryToUpdate.Id + "nOLU category başarı ile eklendi");
+
             }
             else { Console.WriteLine("Güncellenecek category bulunamadı"); }
         }

@@ -12,6 +12,6 @@ namespace Business.Abstract
         void Add(Course course);
         void Update(Course course);
         void Delete(Course course);
-        List<Course> GetList();
+        List<Course> GetAll();
     }
 }

@@ -3,11 +3,12 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Concrete
+namespace DataAccess.Concrete.InMemory
 {
     public class CourseDal : ICourseDal
     {
@@ -26,7 +27,7 @@ namespace DataAccess.Concrete
         public void Add(Course course)
         {
 
-           _courses.Add(course);
+            _courses.Add(course);
         }
 
         public void Delete(Course course)
@@ -34,10 +35,19 @@ namespace DataAccess.Concrete
             _courses.Remove(course);
         }
 
-      
+        public Course Get(Expression<Func<Course, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Course> GetAll(Expression<Func<Course, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Course> GetList()
         {
-           return _courses;
+            return _courses;
         }
 
         public void Update(Course course)
@@ -47,15 +57,15 @@ namespace DataAccess.Concrete
             {
                 coursToUpdate.ID = course.ID;
                 coursToUpdate.Name = course.Name;
-                coursToUpdate.Image= course.Image;
+                coursToUpdate.Image = course.Image;
                 coursToUpdate.Rate = course.Rate;
                 coursToUpdate.IntructorId = course.IntructorId;
                 coursToUpdate.CategoryId = course.CategoryId;
-                Console.WriteLine(coursToUpdate.ID +" nolu kurs güncellendi");
+                Console.WriteLine(coursToUpdate.ID + " nolu kurs güncellendi");
             }
             else
             {
-               Console.WriteLine("Güncellenecek kurs bulunamadı");
+                Console.WriteLine("Güncellenecek kurs bulunamadı");
             }
         }
     }

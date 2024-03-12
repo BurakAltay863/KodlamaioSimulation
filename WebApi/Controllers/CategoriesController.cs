@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Dtos.Requests;
 using Business.Dtos.Responses;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,6 @@ public class CategoriesController : ControllerBase
     [HttpGet]
     public IActionResult Get()
     {
-        return Ok(_categoryService.GetList());
+        return Ok(_categoryService.GetAll());
     }
 }

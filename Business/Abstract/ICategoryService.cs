@@ -14,6 +14,6 @@ namespace Business.Abstract
         CreatedCategoryResponse Add(CreateCategoryRequest createCategoryRequest);
         void Update(Category category);
         void Delete(Category category);
-        List<GetAllCategoryResponse> GetList();
+        List<GetAllCategoryResponse> GetAll();
     }
 }

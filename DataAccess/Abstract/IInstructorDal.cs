@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.DataAccsess;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IInstructorDal
+    public interface IInstructorDal:IEntityRepository<Instructor>
     {
-        void Add(Instructor instructor);
-        void Update(Instructor instructor);
-        void Delete(Instructor instructor);
-        List<Instructor> GetList();
     }
 }

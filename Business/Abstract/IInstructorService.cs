@@ -12,6 +12,6 @@ namespace Business.Abstract
         void Add(Instructor instructor);
         void Update(Instructor instructor);
         void Delete(Instructor instructor);
-        List<Instructor> GetList();
+        List<Instructor> GetAll();
     }
 }

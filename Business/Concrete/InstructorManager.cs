@@ -28,9 +28,9 @@ namespace Business.Concrete
             Console.WriteLine(instructor.ID + "'IDli Kayıt başarı ile silindi");
         }
 
-        public List<Instructor> GetList()
+        public List<Instructor> GetAll()
         {
-            return _instructorDal.GetList();
+            return _instructorDal.GetAll();
         }
 
         public void Update(Instructor instructor)

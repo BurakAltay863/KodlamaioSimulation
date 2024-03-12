@@ -3,17 +3,18 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Concrete
+namespace DataAccess.Concrete.InMemory
 {
     public class InstructorDal : IInstructorDal
     {
         List<Instructor> _instructors;
         public InstructorDal()
         {
-            Instructor ınstructor1 = new Instructor { ID=1, Name="Burak Altay", Description="Mühendis"};
+            Instructor ınstructor1 = new Instructor { ID = 1, Name = "Burak Altay", Description = "Mühendis" };
             _instructors.Add(ınstructor1);
         }
         public void Add(Instructor instructor)
@@ -23,12 +24,17 @@ namespace DataAccess.Concrete
 
         public void Delete(Instructor instructor)
         {
-           _instructors.Remove(instructor);
+            _instructors.Remove(instructor);
         }
 
-        public List<Instructor> GetList()
+        public Instructor Get(Expression<Func<Instructor, bool>> filter)
         {
-           return _instructors;
+            throw new NotImplementedException();
+        }
+
+        public List<Instructor> GetAll(Expression<Func<Instructor, bool>> filter = null)
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Instructor instructor)
